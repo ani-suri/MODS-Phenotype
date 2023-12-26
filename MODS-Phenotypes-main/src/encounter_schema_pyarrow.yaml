@@ -1,0 +1,373 @@
+dynamic:
+    super_table:
+        pat_id: STRING
+        csn: STRING
+        charttime: TIMESTAMP[NS]
+        temperature: DOUBLE
+        daily_weight_kg: DOUBLE
+        height_cm: DOUBLE
+        sbp_line: DOUBLE
+        dbp_line: DOUBLE
+        map_line: DOUBLE
+        sbp_cuff: DOUBLE
+        dbp_cuff: DOUBLE
+        map_cuff: DOUBLE
+        pulse: DOUBLE
+        unassisted_resp_rate: DOUBLE
+        spo2: DOUBLE
+        end_tidal_co2: DOUBLE
+        o2_flow_rate: DOUBLE
+        anion_gap: DOUBLE
+        base_excess: DOUBLE
+        bicarb_(hco3): DOUBLE
+        blood_urea_nitrogen_(bun): DOUBLE
+        calcium: DOUBLE
+        calcium_adjusted: DOUBLE
+        calcium_ionized: DOUBLE
+        chloride: DOUBLE
+        creatinine: DOUBLE
+        gfr: DOUBLE
+        glucose: DOUBLE
+        magnesium: DOUBLE
+        osmolarity: DOUBLE
+        phosphorus: DOUBLE
+        potassium: DOUBLE
+        sodium: DOUBLE
+        haptoglobin: DOUBLE
+        hematocrit: DOUBLE
+        hemoglobin: DOUBLE
+        met_hgb: DOUBLE
+        platelets: DOUBLE
+        white_blood_cell_count: DOUBLE
+        carboxy_hgb: DOUBLE
+        alanine_aminotransferase_(alt): DOUBLE
+        albumin: DOUBLE
+        alkaline_phosphatase: DOUBLE
+        ammonia: DOUBLE
+        aspartate_aminotransferase_(ast): DOUBLE
+        bilirubin_direct: DOUBLE
+        bilirubin_total: DOUBLE
+        fibrinogen: DOUBLE
+        inr: DOUBLE
+        lactate_dehydrogenase: DOUBLE
+        lactic_acid: DOUBLE
+        partial_prothrombin_time_(ptt): DOUBLE
+        prealbumin: DOUBLE
+        protein: DOUBLE
+        prothrombin_time_(pt): DOUBLE
+        thrombin_time: DOUBLE
+        transferrin: DOUBLE
+        amylase: DOUBLE
+        lipase: DOUBLE
+        b-type_natriuretic_peptide_(bnp): DOUBLE
+        troponin: DOUBLE
+        fio2: DOUBLE
+        partial_pressure_of_carbon_dioxide_(paco2): DOUBLE
+        partial_pressure_of_oxygen_(pao2): DOUBLE
+        ph: DOUBLE
+        saturation_of_oxygen_(sao2): DOUBLE
+        d_dimer: DOUBLE
+        hemoglobin_a1c: DOUBLE
+        parathyroid_level: DOUBLE
+        thyroid_stimulating_hormone_(tsh): DOUBLE
+        crp_high_sens: DOUBLE
+        procalcitonin: DOUBLE
+        erythrocyte_sedimentation_rate_(esr): DOUBLE
+        c_diff: STRING
+        covid: STRING
+        mtp: STRING
+        gcs_eye_score: DOUBLE
+        gcs_verbal_score: DOUBLE
+        gcs_motor_score: DOUBLE
+        gcs_total_score: DOUBLE
+        vent_status: DOUBLE
+        norepinephrine: DOUBLE
+        epinephrine: DOUBLE
+        dobutamine: DOUBLE
+        dopamine: DOUBLE
+        phenylephrine: DOUBLE
+        vasopressin: DOUBLE
+        norepinephrine_dose_unit: STRING
+        epinephrine_dose_unit: STRING
+        dobutamine_dose_unit: STRING
+        dopamine_dose_unit: STRING
+        phenylephrine_dose_unit: STRING
+        vasopressin_dose_unit: STRING
+        icu: DOUBLE
+        imc: DOUBLE
+        ed: DOUBLE
+        procedure: DOUBLE
+        best_map: DOUBLE
+        norepinephrine_dose_weight: DOUBLE
+        epinephrine_dose_weight: DOUBLE
+        dobutamine_dose_weight: DOUBLE
+        dopamine_dose_weight: DOUBLE
+        phenylephrine_dose_weight: DOUBLE
+        vasopressin_dose_weight: DOUBLE
+        pf_sp: DOUBLE
+        pf_pa: DOUBLE
+    scores:
+        sofa_scores:
+            SOFA_coag: DOUBLE
+            SOFA_renal: DOUBLE
+            SOFA_hep: DOUBLE
+            SOFA_neuro: DOUBLE
+            SOFA_cardio: DOUBLE
+            SOFA_cardio_mod: DOUBLE
+            SOFA_resp: DOUBLE
+            SOFA_resp_sa: DOUBLE
+            SOFA_hourly_total: DOUBLE
+            SOFA_delta_24h: DOUBLE
+            SOFA_hourly_total_mod: DOUBLE
+            SOFA_delta_24h_mod: DOUBLE
+        sirs_scores:
+            SIRS_resp: DOUBLE
+            SIRS_cardio: DOUBLE
+            SIRS_temp: DOUBLE
+            SIRS_wbc: DOUBLE
+            SIRS_hourly_total: DOUBLE
+            SIRS_delta_24h: DOUBLE
+static:
+    flags:
+        csn: STRING
+        pt_id: STRING
+        y_vent_rows: DOUBLE
+        y_vent_start_time: DOUBLE
+        y_vent_end_time: DOUBLE
+        vent_start_time: TIMESTAMP[NS]
+        ed_wait_time: DOUBLE
+        worst_pf_pa: DOUBLE
+        worst_pf_pa_time: TIMESTAMP[NS]
+        worst_pf_sp: DOUBLE
+        worst_pf_sp_time: TIMESTAMP[NS]
+        first_sep2_susp: TIMESTAMP[NS]
+        first_sep2_SIRS: TIMESTAMP[NS]
+        first_sep2_time: TIMESTAMP[NS]
+        first_sep3_susp: TIMESTAMP[NS]
+        first_sep3_SOFA: TIMESTAMP[NS]
+        first_sep3_time: TIMESTAMP[NS]
+        first_sep3_susp_mod: TIMESTAMP[NS]
+        first_sep3_SOFA_mod: TIMESTAMP[NS]
+        first_sep3_time_mod: TIMESTAMP[NS]
+    static_features:
+        admit_reason: STRING
+        ed_arrival_source: STRING
+        total_icu_days: DOUBLE
+        total_vent_days: DOUBLE
+        total_hosp_days: DOUBLE
+        discharge_status: STRING
+        discharge_to: STRING
+        encounter_type: STRING
+        age: DOUBLE
+        gender: STRING
+        gender_code: STRING
+        race: STRING
+        race_code: STRING
+        ethnicity: STRING
+        ethnicity_code: STRING
+    event_times:
+        ed_presentation_time: TIMESTAMP[NS]
+        hospital_admission_date_time: TIMESTAMP[NS]
+        hospital_discharge_date_time: TIMESTAMP[NS]
+        start_index: TIMESTAMP[NS]
+        first_icu_start: TIMESTAMP[NS]
+        first_icu_end: TIMESTAMP[NS]
+    times:
+        t_suspicion:
+            times_abx_order: STRING # LIST(TIMESTAMP[NS])
+            times_culture: STRING # LIST(TIMESTAMP[NS])
+            # t_suspicion: LIST(TIMESTAMP[NS])
+        sep3_time:
+            times_suspicion_sepsis3: STRING # LIST(TIMESTAMP[NS])
+            times_SOFA: STRING # LIST(TIMESTAMP[NS])
+            times_sepsis3: STRING # LIST(TIMESTAMP[NS])
+        # sep2_time:
+        #    t_SIRS: LIST(TIMESTAMP[NS])
+        #    t_suspicion: LIST(TIMESTAMP[NS])
+        #    t_sepsis2: LIST(TIMESTAMP[NS])
+perCSN:
+    cultures_PerCSN:
+        csn: STRING
+        pat_id: STRING
+        proc_code: DOUBLE
+        proc_desc: STRING
+        component_id: DOUBLE
+        component: STRING
+        loinc_code: STRING
+        specimen_collect_time: TIMESTAMP[NS]
+        order_time: TIMESTAMP[NS]
+        order_id: DOUBLE
+        result_id: DOUBLE
+        lab_result_time: TIMESTAMP[NS]
+        result_status: STRING
+        lab_result: STRING
+    beds_PerCSN:
+        csn: STRING
+        pat_id: STRING
+        bed_location_start: TIMESTAMP[NS]
+        bed_location_end: TIMESTAMP[NS]
+        bed_unit: STRING
+        bed_room: STRING
+        bed_id: STRING
+        bed_label: STRING
+        hospital_service: STRING
+        accomodation_code: STRING
+        accomodation_description: STRING
+        icu: DOUBLE
+        imc: DOUBLE
+        ed: DOUBLE
+        procedure: DOUBLE
+    procedures_PerCSN:
+        csn: STRING
+        pat_id: STRING
+        surgery_date: TIMESTAMP[NS]
+        in_or_dttm: TIMESTAMP[NS]
+        procedure_start_dttm: TIMESTAMP[NS]
+        procedure_comp_dttm: TIMESTAMP[NS]
+        out_or_dttm: TIMESTAMP[NS]
+        or_procedure_id: STRING
+        primary_procedure_nm: STRING
+        cpt_code: STRING
+        service_nm: STRING
+        primary_physician_nm: STRING
+    diagnosis_PerCSN:
+        csn: STRING
+        pat_id: STRING
+        dx_line: STRING
+        dx_icd_scope: STRING
+        dx_code_icd9: STRING
+        dx_code_icd10: STRING
+        dx_source: STRING
+        dx_time_date: TIMESTAMP[NS]
+        dx_code: STRING
+        dx_name: STRING
+# misc:
+#     abx_order_time: STRING # array(timestamp[ns])
+#     culture_times: STRING # array(timestamp[ns])
+#     vent_status: DOUBLE
+#     vent_fio2: DOUBLE
+# staging:
+#     cultures_staging:
+#        proc_code: DOUBLE
+#        proc_desc: STRING
+#        component_id: DOUBLE
+#        component: STRING
+#        loinc_code: STRING
+#        specimen_collect_time: TIMESTAMP[NS]
+#        order_time: TIMESTAMP[NS]
+#        order_id: DOUBLE
+#        lab_result_time: TIMESTAMP[NS]
+#        result_status: STRING
+#        lab_result: STRING
+#     abx_staging:
+#        pat_id: STRING
+#        order_med_id: DOUBLE
+#        medication_id: DOUBLE
+#        med_name: STRING
+#        formulary_code: STRING
+#        formulary_name: STRING
+#        med_name_generic: STRING
+#        med_order_time: TIMESTAMP[NS]
+#        med_action_time: TIMESTAMP[NS]
+#        med_action_code: DOUBLE
+#        med_action: STRING
+#        med_start: TIMESTAMP[NS]
+#        med_stop: TIMESTAMP[NS]
+#        med_order_route_c: DOUBLE
+#        med_order_route: STRING
+#        med_action_dose: DOUBLE
+#        med_action_dose_unit: STRING
+#        super_table_col_name: STRING
+#     labs_staging:
+#        anion_gap: DOUBLE
+#        base_excess: DOUBLE
+#        bicarb_(hco3): DOUBLE
+#        blood_urea_nitrogen_(bun): DOUBLE
+#        calcium: DOUBLE
+#        calcium_adjusted: DOUBLE
+#        calcium_ionized: DOUBLE
+#        chloride: DOUBLE
+#        creatinine: DOUBLE
+#        gfr: DOUBLE
+#        glucose: DOUBLE
+#        magnesium: DOUBLE
+#        osmolarity: DOUBLE
+#        phosphorus: DOUBLE
+#        potassium: DOUBLE
+#        sodium: DOUBLE
+#        haptoglobin: DOUBLE
+#        hematocrit: DOUBLE
+#        hemoglobin: DOUBLE
+#        met_hgb: DOUBLE
+#        platelets: DOUBLE
+#        white_blood_cell_count: DOUBLE
+#        carboxy_hgb: DOUBLE
+#        alanine_aminotransferase_(alt): DOUBLE
+#        albumin: DOUBLE
+#        alkaline_phosphatase: DOUBLE
+#        ammonia: DOUBLE
+#        aspartate_aminotransferase_(ast): DOUBLE
+#        bilirubin_direct: DOUBLE
+#        bilirubin_total: DOUBLE
+#        fibrinogen: DOUBLE
+#        inr: DOUBLE
+#        lactate_dehydrogenase: DOUBLE
+#        lactic_acid: DOUBLE
+#        partial_prothrombin_time_(ptt): DOUBLE
+#        prealbumin: DOUBLE
+#        protein: DOUBLE
+#        prothrombin_time_(pt): DOUBLE
+#        thrombin_time: DOUBLE
+#        transferrin: DOUBLE
+#        amylase: DOUBLE
+#        lipase: DOUBLE
+#        b-type_natriuretic_peptide_(bnp): DOUBLE
+#        troponin: DOUBLE
+#        fio2: DOUBLE
+#        partial_pressure_of_carbon_dioxide_(paco2): DOUBLE
+#        partial_pressure_of_oxygen_(pao2): DOUBLE
+#        ph: DOUBLE
+#        saturation_of_oxygen_(sao2): DOUBLE
+#        d_dimer: DOUBLE
+#        hemoglobin_a1c: DOUBLE
+#        parathyroid_level: DOUBLE
+#        thyroid_stimulating_hormone_(tsh): DOUBLE
+#        crp_high_sens: DOUBLE
+#        procalcitonin: DOUBLE
+#        erythrocyte_sedimentation_rate_(esr): DOUBLE
+#        c_diff: STRING
+#        covid: STRING
+#        mtp: STRING
+#     vitals_staging:
+#        temperature: DOUBLE
+#        daily_weight_kg: DOUBLE
+#        height_cm: DOUBLE
+#        sbp_line: DOUBLE
+#        dbp_line: DOUBLE
+#        map_line: DOUBLE
+#        sbp_cuff: DOUBLE
+#        dbp_cuff: DOUBLE
+#        map_cuff: DOUBLE
+#        pulse: DOUBLE
+#        unassisted_resp_rate: DOUBLE
+#        spo2: DOUBLE
+#        end_tidal_co2: DOUBLE
+#        o2_flow_rate: DOUBLE
+#     gcs_staging:
+#        gcs_eye_score: DOUBLE
+#        gcs_verbal_score: DOUBLE
+#        gcs_motor_score: DOUBLE
+#        gcs_total_score: DOUBLE
+#     vasopressor_meds_staging:
+#        norepinephrine: DOUBLE
+#        epinephrine: DOUBLE
+#        dobutamine: DOUBLE
+#        dopamine: DOUBLE
+#        phenylephrine: DOUBLE
+#        vasopressin: DOUBLE
+#        norepinephrine_dose_unit: STRING
+#        epinephrine_dose_unit: STRING
+#        dobutamine_dose_unit: STRING
+#        dopamine_dose_unit: STRING
+#        phenylephrine_dose_unit: STRING
+#        vasopressin_dose_unit: STRING

@@ -1,0 +1,73 @@
+parameters:
+    sepsis3_window_days: 28
+    num_cpus: 180
+    num_gpus: 0
+    sample_rate: 1
+emory:
+  filepaths:
+    encounter_pickles: "{{collab_path}}/Emory_Data/Pickles/Encounter_Pickles/em/"
+    extracted_data: "{{project_path}}/data/{{run_id}}/extracted_data/emory/"
+  years:
+    start_year: 2014
+    stop_year: 2022 # exclusive
+    skip_years:
+      - 2015
+  keys:
+      patient_key: "pat_id" # Patient Identification
+      service_key: "csn"   # Clinical Service Number
+      record_dt: "charttime"   # Chart Record DateTime
+  static:
+      - "flags"
+      - "static_features"
+      - "event_times"
+  times:
+      - "t_suspicion"
+      - "sep3_time"
+  dynamic:
+      - "super_table"
+      - "scores"
+  scores:
+      - 'sofa_scores'
+      - 'sirs_scores'
+  datetimes:
+    hospital_encounter_current: "hospital_encounter_current"
+    hospital_encounter_total: "hospital_encounter_total"
+    hospital_intime: "hospital_admission_date_time"
+    hospital_outtime: "hospital_discharge_date_time"
+    sepsis3_onset: "first_sep3_time"
+    sepsis3_encounter: "sepsis3_encounter"
+    sepsis3_current: "sepsis3_current"
+    sepsis3_window: "sepsis3_window"
+grady:
+  filepaths:
+    encounter_pickles: "{{collab_path}}/Grady_Data/Pickles/Encounter_Pickles/gr/"
+    extracted_data: "{{project_path}}/data/{{run_id}}/extracted_data/grady/"
+  years:
+    start_year: 2014 # inclusive
+    stop_year: 2021 # exclusive
+  keys:
+      patient_key: "pat_id" # Patient Identification
+      service_key: "csn"   # Clinical Service Number
+      record_dt: "charttime"   # Chart Record DateTime
+  static:
+      - "flags"
+      - "static_features"
+      - "event_times"
+  times:
+      - "t_suspicion"
+      - "sep3_time"
+  dynamic:
+      - "super_table"
+      - "scores"
+  scores:
+      - "sofa_scores"
+      - "sirs_scores"
+  datetimes:
+    hospital_encounter_current: "hospital_encounter_current"
+    hospital_encounter_total: "hospital_encounter_total"
+    hospital_intime: "hospital_admission_date_time"
+    hospital_outtime: "hospital_discharge_date_time"
+    sepsis3_onset: "first_sep3_time"
+    sepsis3_encounter: "sepsis3_encounter"
+    sepsis3_current: "sepsis3_current"
+    sepsis3_window: "sepsis3_window"

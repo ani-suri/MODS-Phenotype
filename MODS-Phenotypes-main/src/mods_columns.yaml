@@ -1,0 +1,49 @@
+encounter_df:
+    keys:
+        patient_id: "pat_id" # Patient Identification
+        service_id: "csn"   # Clinical Service Number
+        record_dt: "charttime"   # Chart Record DateTime
+    datetimes:
+      hospital_encounter_current: "hospital_encounter_current"
+      hospital_encounter_total: "hospital_encounter_total"
+      hospital_intime: "hospital_admission_date_time"
+      hospital_outtime: "hospital_discharge_date_time"
+      sepsis3_onset: "first_sep3_time"
+    demographics:
+        - 'age'
+        - 'gender'
+        - 'gender_code'
+        - 'race'
+        - 'race_code'
+        - 'ethnicity'
+        - 'ethnicity_code'
+    data:
+        - 'first_sep3_susp'
+        - 'first_sep3_SOFA'
+        - 'first_sep3_time'
+        - 'first_sep3_susp_mod'
+        - 'first_sep3_SOFA_mod'
+        - 'first_sep3_time_mod'
+        - 'pf_sp'
+        - 'pf_pa'
+        - 't_abx'
+        - 't_clt'
+        - 't_suspicion'
+        - 'SOFA_coag'
+        - 'SOFA_renal'
+        - 'SOFA_hep'
+        - 'SOFA_neuro'
+        - 'SOFA_cardio'
+        - 'SOFA_cardio_mod'
+        - 'SOFA_resp'
+        - 'SOFA_resp_sa'
+        - 'hourly_total'
+        - 'delta_24h'
+        - 'hourly_total_mod'
+        - 'delta_24h_mod'
+        - 't_SOFA'
+        - 't_sepsis3'
+        - 'SIRS_resp'
+        - 'SIRS_cardio'
+        - 'SIRS_temp'
+        - 'SIRS_wbc'
